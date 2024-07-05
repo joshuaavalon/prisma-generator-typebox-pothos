@@ -1,0 +1,68 @@
+{
+  "name": "@joshuaavalon/prisma-generator-typebox-pothos",
+  "version": "1.0.0",
+  "description": "Code generator for Prisma, TypeBox, Pothos",
+  "type": "module",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "tsc",
+    "pretest": "rimraf ./tmp && prisma migrate deploy",
+    "test": "set NODE_OPTIONS=--enable-source-maps && mocha",
+    "lint": "eslint src",
+    "db:generate": "prisma generate"
+  },
+  "keywords": [
+    "prisma",
+    "typebox",
+    "pothos"
+  ],
+  "author": "Joshua Avalon",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/data-pixel/data-pixel.git"
+  },
+  "bugs": {
+    "url": "https://github.com/data-pixel/data-pixel/issues"
+  },
+  "homepage": "https://github.com/data-pixel/data-pixel#readme",
+  "module": "./dist/index.js",
+  "imports": {
+    "#config": "./dist/config/index.js",
+    "#comment": "./dist/comment/index.js",
+    "#generator": "./dist/generator/index.js",
+    "#utils": "./dist/utils/index.js",
+    "#schema": "./dist/schema.js"
+  },
+  "exports": {},
+  "bin": {
+    "prisma-generator-typebox-pothos": "./dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "@joshuaavalon/eslint-config-typescript": "^7.1.3",
+    "@pothos/core": "^3.41.2",
+    "@pothos/plugin-prisma": "^3.65.3",
+    "@pothos/plugin-scope-auth": "^3.22.0",
+    "@prisma/client": "^5.14.0",
+    "@types/chai": "^4.3.14",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "^20.11.28",
+    "chai": "^5.1.0",
+    "eslint": "^8.57.0",
+    "globals": "^14.0.0",
+    "mocha": "^10.4.0",
+    "prisma": "^5.14.0",
+    "rimraf": "^5.0.5"
+  },
+  "dependencies": {
+    "@prisma/generator-helper": "^5.14.0",
+    "@sinclair/typebox": "^0.32.30",
+    "typescript": "^5.4.5"
+  }
+}
